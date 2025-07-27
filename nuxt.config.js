@@ -68,7 +68,7 @@ export default {
       },
       responseType: "token id_token",
       scope: ["openid","profile","email"],
-      redirectUri: "https://image-enhancer-omega.vercel.app/callback",
+      redirectUri: "https://image-enhancer-omega.vercel.app/auth/callback",
       codeChallengeMethod: "",
     },
       github: {
@@ -82,7 +82,7 @@ export default {
     },
     responseType: "token id_token",
     scope: ['user', 'email'],
-    redirectUri: "hhttps://image-enhancer-omega.vercel.app/callback",
+    redirectUri: "https://image-enhancer-omega.vercel.app/auth/callback",
     codeChallengeMethod: ''
   },
     },},
