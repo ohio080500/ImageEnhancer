@@ -7,7 +7,7 @@
         color="#1e1e1e"
       >
         <v-card-text>
-          <h1 class="text-h4 text-center mb-6" style="color: white;">Login</h1>
+          <h1 class="text-h4 text-center mb-6" style="color: white;">ImageEnhance</h1>
 
           <v-text-field
             label="Email"
