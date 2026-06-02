@@ -19,11 +19,17 @@ export default {
       }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        href: '/favicon.ico'
+      }
     ]
   },
 
-  loading: { color: '#fff' },
+  loading: {
+    color: '#fff'
+  },
 
   css: [],
 
@@ -54,22 +60,21 @@ export default {
       google: {
         scheme: 'oauth2',
 
-        clientId:
-          '681717550297-s47pr1ifo65jabmn5p9b8ao1q1dajkfu.apps.googleusercontent.com',
+        clientId: process.env.GOOGLE_CLIENT_ID,
 
         endpoints: {
-          authorization: 'https://accounts.google.com/o/oauth2/auth',
+          authorization: 'https://accounts.google.com/o/oauth2/v2/auth',
           token: 'https://oauth2.googleapis.com/token',
-          userInfo: 'https://www.googleapis.com/oauth2/v3/userinfo'
+          userInfo: 'https://openidconnect.googleapis.com/v1/userinfo'
         },
+
+        responseType: 'token id_token',
 
         token: {
           property: 'access_token',
           type: 'Bearer',
           maxAge: 1800
         },
-
-        responseType: 'token id_token',
 
         scope: [
           'openid',
@@ -78,31 +83,41 @@ export default {
         ],
 
         redirectUri:
+          process.env.REDIRECT_URI ||
           'https://nuxt-enhancer.vercel.app/auth/callback',
 
-        codeChallengeMethod: ''
+        codeChallengeMethod: '',
+
+        params: {
+          prompt: 'select_account'
+        }
       },
 
       github: {
+        scheme: 'oauth2',
+
         clientId: process.env.GITHUB_CLIENT_ID,
         clientSecret: process.env.GITHUB_CLIENT_SECRET,
 
-        scheme: 'oauth2',
-
         endpoints: {
-          authorization: 'https://github.com/login/oauth/authorize',
-          token: 'https://github.com/login/oauth/access_token',
-          userInfo: 'https://api.github.com/user'
+          authorization:
+            'https://github.com/login/oauth/authorize',
+          token:
+            'https://github.com/login/oauth/access_token',
+          userInfo:
+            'https://api.github.com/user'
         },
 
-        responseType: 'token id_token',
+        responseType: 'token',
 
         scope: [
           'user',
           'email'
         ],
 
-        redirectUri: process.env.REDIRECT_URI,
+        redirectUri:
+          process.env.REDIRECT_URI ||
+          'https://nuxt-enhancer.vercel.app/auth/callback',
 
         codeChallengeMethod: ''
       }
@@ -110,7 +125,9 @@ export default {
   },
 
   vuetify: {
-    customVariables: ['~/assets/variables.scss'],
+    customVariables: [
+      '~/assets/variables.scss'
+    ],
 
     theme: {
       dark: true,
