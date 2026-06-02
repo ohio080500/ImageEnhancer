@@ -107,7 +107,7 @@ export default {
         {
           icon: 'mdi-apps',
           title: 'Image Enhancer',
-          to: '/ImageEnhancer'
+          to: '/imageEnhancer'
         }
       ],
       miniVariant: false,
