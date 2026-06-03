@@ -1,7 +1,4 @@
-import colors from 'vuetify/es5/util/colors'
-
-console.log('GOOGLE_CLIENT_ID:', process.env.GOOGLE_CLIENT_ID)
-console.log('REDIRECT_URI:', process.env.REDIRECT_URI)
+import colors from 'vuetify/es5/util/colors'  
 
 export default {
   ssr: false,
@@ -59,37 +56,25 @@ export default {
     },
 
     autoFetchUser: false,
-
     strategies: {
       google: {
-        scheme: 'oauth2',
-
-        clientId: process.env.GOOGLE_CLIENT_ID,
-
-        endpoints: {
-          authorization: 'https://accounts.google.com/o/oauth2/auth',
-          token: 'https://oauth2.googleapis.com/token',
-          userInfo: 'https://www.googleapis.com/oauth2/v3/userinfo'
-        },
-
-        token: {
-          property: 'access_token',
-          type: 'Bearer',
-          maxAge: 1800
-        },
-
-        responseType: 'code',
-
-        scope: [
-          'openid',
-          'profile',
-          'email'
-        ],
-
-        redirectUri: process.env.REDIRECT_URI,
-
-        codeChallengeMethod: ''
+      clientId: process.env.CLIENT_ID,
+      scheme:'oauth2',
+      endpoints:{
+        authorization: 'https://accounts.google.com/o/oauth2/auth',
+        token: 'https://oauth2.googleapis.com/token',
+        userInfo: "https://www.googleapis.com/oauth2/v3/userinfo",
       },
+      token:{
+        property: "access_token",
+        type: "Bearer",
+        maxAge: 1800,
+      },
+      responseType: "token id_token",
+      scope: ["openid","profile","email"],
+      redirectUri: process.env.REDIRECT_URI,
+      codeChallengeMethod: "",
+    },
 
       github: {
         clientId: process.env.GITHUB_CLIENT_ID,
