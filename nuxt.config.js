@@ -19,7 +19,12 @@ export default {
       }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css' }
+    ],
+    script: [
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js' },
+      { src: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/leaflet-color-markers.js' }
     ]
   },
 
@@ -28,7 +33,8 @@ export default {
   css: [],
 
   plugins: [
-    '~/plugins/image-enhancer.js'
+    '~/plugins/image-enhancer.js',
+    '~/plugins/mapPlugin.js'
   ],
 
   buildModules: [
@@ -79,6 +85,7 @@ export default {
 
         redirectUri:
           'https://nuxt-enhancer.vercel.app/auth/callback',
+          // 'https://nuxt-enhancer.vercel.app/auth/callback
 
         codeChallengeMethod: ''
       },

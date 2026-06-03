@@ -108,7 +108,11 @@ export default {
           icon: 'mdi-apps',
           title: 'Image Enhancer',
           to: '/imageEnhancer'
-        }
+        },
+        {
+          icon: 'mdi-map',
+          title: 'Interactive Map',
+          to: '/Maps'        }
       ],
       miniVariant: false,
       right: true,
