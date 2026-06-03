@@ -4,7 +4,7 @@ console.log('GOOGLE_CLIENT_ID:', process.env.GOOGLE_CLIENT_ID)
 console.log('REDIRECT_URI:', process.env.REDIRECT_URI)
 
 export default {
-  mode: 'spa',
+  ssr: false,
 
   head: {
     titleTemplate: '%s - ' + process.env.npm_package_name,
@@ -60,8 +60,7 @@ export default {
       google: {
         scheme: 'oauth2',
 
-        clientId:
-          '681717550297-s47pr1ifo65jabmn5p9b8ao1q1dajkfu.apps.googleusercontent.com',
+        clientId: process.env.GOOGLE_CLIENT_ID,
 
         endpoints: {
           authorization: 'https://accounts.google.com/o/oauth2/auth',
@@ -83,9 +82,7 @@ export default {
           'email'
         ],
 
-        redirectUri:
-          'https://nuxt-enhancer.vercel.app/auth/callback',
-          // 'https://nuxt-enhancer.vercel.app/auth/callback
+        redirectUri: process.env.REDIRECT_URI,
 
         codeChallengeMethod: ''
       },
