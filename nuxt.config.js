@@ -46,6 +46,10 @@ export default {
     '@nuxtjs/auth-next'
   ],
 
+  axios: {
+    withCredentials: true
+  },
+
   auth: {
     redirect: {
       login: '/auth/login',
@@ -74,7 +78,7 @@ export default {
           maxAge: 1800
         },
 
-        responseType: 'token id_token',
+        responseType: 'code',
 
         scope: [
           'openid',
@@ -99,7 +103,7 @@ export default {
           userInfo: 'https://api.github.com/user'
         },
 
-        responseType: 'token id_token',
+        responseType: 'code',
 
         scope: [
           'user',
@@ -108,7 +112,7 @@ export default {
 
         redirectUri: process.env.REDIRECT_URI,
 
-        codeChallengeMethod: ''
+        codeChallengeMethod: 'pkce'
       }
     }
   },
